@@ -2,12 +2,12 @@
   "name": "test-webpack-react",
   "description": "My webpack React playground",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server",
-    "test": "eslint src/js/**/*.{js,jsx} webpack.config.js"
+    "build": "NODE_ENV=production webpack",
+    "start": "NODE_ENV=development webpack-dev-server",
+    "test": "NODE_ENV=development eslint src/js/**/*.{js,jsx} webpack.config.js"
   },
   "devDependencies": {
-    "babel-core": "^6.16.0",
+    "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-es3-member-expression-literals": "^6.8.0",
@@ -18,7 +18,7 @@
     "babel-preset-stage-1": "^6.16.0",
     "babel-register": "^6.16.3",
     "css-loader": "^0.25.0",
-    "eslint": "^3.7.0",
+    "eslint": "^3.7.1",
     "eslint-config-xo": "^0.16.0",
     "eslint-config-xo-react": "^0.10.0",
     "eslint-loader": "^1.5.0",
@@ -26,6 +26,6 @@
     "eslint-plugin-xo": "^1.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.1"
+    "webpack-dev-server": "^1.16.2"
   }
 }

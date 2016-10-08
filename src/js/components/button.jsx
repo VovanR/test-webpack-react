@@ -1,8 +1,18 @@
 /* global React */
 
 class Button extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.handleClick = this.handleClick.bind(this);
+	}
+
 	shouldComponentUpdate() {
 		return false;
+	}
+
+	handleClick() {
+		this.props.onClick();
 	}
 
 	render() {
@@ -12,6 +22,7 @@ class Button extends React.Component {
 			<button
 				className="button"
 				type="button"
+				onClick={this.handleClick}
 				>
 				{children}
 			</button>
@@ -19,7 +30,8 @@ class Button extends React.Component {
 	}
 }
 Button.propTypes = {
-	children: React.PropTypes.any
+	children: React.PropTypes.any,
+	onClick: React.PropTypes.func.isRequired
 };
 Button.defaultProps = {
 	children: 'Click Me!'

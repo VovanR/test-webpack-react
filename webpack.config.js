@@ -4,7 +4,9 @@
 const path = require('path');
 
 const PATH_SRC = path.join(__dirname, 'src');
-const PATH_DIST = path.join(__dirname, 'dist');
+const PATH_DIST = path.join(__dirname, 'assets');
+
+const {NODE_ENV} = process.env;
 
 module.exports = {
 	entry: {
@@ -36,7 +38,7 @@ module.exports = {
 	eslint: {
 		configFile: path.join(__dirname, '.eslintrc')
 	},
-	devtool: 'cheap-module-source-map',
+	devtool: NODE_ENV === 'development' ? 'eval' : null,
 	plugins: [],
 	externals: {
 		react: 'React',
@@ -51,5 +53,8 @@ module.exports = {
 			node_modules: path.join(__dirname, 'node_modules')
 		},
 		root: [PATH_SRC]
+	},
+	devServer: {
+		publicPath: '/assets/'
 	}
 };
